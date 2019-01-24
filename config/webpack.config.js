@@ -14,7 +14,9 @@ var config = {
     module: {
         rules: loaders()
     },
-    plugins: [new webpack.ProgressPlugin()]
+    plugins: [new webpack.ProgressPlugin(),new webpack.ProvidePlugin({
+        noUiSlider: 'nouislider'
+    })]
 }
 
 switch (process.env.NODE_ENV) {
