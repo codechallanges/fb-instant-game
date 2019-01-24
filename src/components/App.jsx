@@ -11,7 +11,8 @@ class App extends React.Component {
         super(props)
         this.state={
             loading: false,
-            loadingError: false
+            loadingError: false,
+            displayResult: false
         }
     }
 
@@ -35,11 +36,15 @@ class App extends React.Component {
         this.setState({loading: false})
     }
 
+    onDisplayResult= (total)=>{
+        this.setState({displayResult: true,result: total})
+    }
+
     render(){
         return (
             <div className="app" >
                 {
-                    this.state.loading ? <p>Preparing app...</p>: <GameForm onDisplayResult={} />
+                    this.state.loading ? <p>Preparing app...</p>: <GameForm onDisplayResult={total=> this.onDisplayResult(total) } />
                 }
             </div>
         )
