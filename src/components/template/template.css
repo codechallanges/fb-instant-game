@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Mukta|Permanent+Marker');
+.header-font{
+    font-family: 'Permanent Marker', cursive;
+    font-weight: bolder;
+    letter-spacing: 3px;
+}
