@@ -1,19 +1,17 @@
 'use strict'
 var chalk = require('chalk')
-var {
-   dev
-}= require('../env')
+var {resolveApp} = require('../utils')
 
 module.exports= function(config){
     console.log('environment: '+ chalk.blue('development'))
-    config.entry= dev.entry
+
     config.output= {
-        path: dev.bundle_path,
-        filename: dev.outputName
+        path:resolveApp('build'),
+        filename: 'app.bundle.js'
     }
-    config.mode= dev.label 
+    config.mode= 'development'
     config.devServer= {
-        contentBase: dev.devServerContent ,
+        contentBase: resolveApp() ,
         port: 4000,
         historyApiFallback: true,
         publicPath: '/build/'

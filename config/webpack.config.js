@@ -4,6 +4,7 @@ var loaders = require('./loaders')
 var {resolveApp} = require('./utils')
 
 var config = {
+    entry: resolveApp('index.js'),
     devtool: '#source-map',
     resolve: {
         extensions: ['.js', '.jsx', '.json'],
@@ -21,12 +22,10 @@ var config = {
 
 switch (process.env.NODE_ENV) {
     case 'dev':
-        require('./env_config/dev')(config)
+        require('./env/dev')(config)
         break;
     case 'prod':
-        require('./env_config/prod')(config)
-    case 'test':
-        require('./env_config/test')(config)
+        require('./env/prod')(config)
     default:
         break;
 }

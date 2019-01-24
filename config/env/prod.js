@@ -1,19 +1,17 @@
 'use strict'
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 var chalk = require('chalk')
-var {
-    prod
-} = require('./env')
+var {resolveApp} = require('../utils')
 
 module.exports = function (config) {
     console.log('environment: ' + chalk.green('production'))
-    config.entry = '../src/components/lib'
+    
     config.output = {
-        path: prod.bundle_path,
-        filename: prod.outputName
+        path:  resolveApp('dist'),
+        filename: 'app.min.js'
     }
-    config.output.path = prod.bundle_path
-    config.mode = prod.label
+
+    config.mode =  'production'
     config.plugins.push(new UglifyJsPlugin({
         parallel: true,
         sourceMap: true,
