@@ -43,6 +43,17 @@ class index extends Component {
           this.setState({answers: {...answers, [question]: newValue }})
     }
 
+    submitValues= ()=>{
+        const {onDisplayResult}= this.props
+
+        console.log(this.state.answers)
+        var total= Calculate(this.state.answers)
+
+        setTimeout(()=>{
+            onDisplayResult(total)
+        },1500)
+    }
+
     render() {
         return (
             <AppTemplate>
