@@ -41,7 +41,7 @@ export default class Score extends React.Component {
                         <div className="flex-column has-text-centered" >
                             <div className="column" >
                                 <p>Your react app score</p>
-                                <p>{this.state.score}</p>
+                                <p className="title is-bold" style={{fontSize: '50px'}}  >{this.state.score}</p>
                             </div>
                             <div className="column" >
                                 <a className="button is-link is-outlined" href="#" 

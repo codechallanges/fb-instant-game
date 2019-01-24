@@ -47,9 +47,7 @@ class index extends Component {
 
         var total= Calculate(this.state.answers)
 
-        setTimeout(()=>{
-            onDisplayResult(total)
-        },1500)
+        onDisplayResult(total)
     }
 
     render() {
