@@ -3,6 +3,7 @@ import AppTemplate from '../template';
 import Question from './Question';
 import Boxes from './Boxes';
 import Slider from './Slider';
+import Calculate from '../../utils/calculate';
 
 class index extends Component {
     state={
@@ -33,8 +34,6 @@ class index extends Component {
 
     onItemSelect= (selector,question)=> {
            const {answers}= this.state
-           console.log('select')
-           console.log($(selector).val())
            this.setState({answers: {...answers, [question]: $(selector).val() }  })
     }
 
@@ -46,7 +45,6 @@ class index extends Component {
     submitValues= ()=>{
         const {onDisplayResult}= this.props
 
-        console.log(this.state.answers)
         var total= Calculate(this.state.answers)
 
         setTimeout(()=>{

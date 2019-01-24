@@ -46,7 +46,7 @@ class App extends React.Component {
         return (
             <div className="app" >
                 {
-                    loading ? <p>Preparing app...</p>:
+                    //loading ? <p>Preparing app...</p>:
                         displayResult ? <Result score={score} />: <GameForm onDisplayResult={total=> this.onDisplayResult(total) } />
                 }
             </div>
