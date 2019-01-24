@@ -4,7 +4,7 @@ import App from './src/components/App';
 
 
 import '@assets/css/normalize.css';
-import '@assets/css/bulms.min.css';
+import '@assets/css/bulma.min.css';
 
 const AppContainer= document.getElementById('app')
 ReactDOM.render(<App/>, AppContainer )
