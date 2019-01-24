@@ -20,6 +20,29 @@ class index extends Component {
         }
     }
 
+
+    onBoxItemClick= (item,question)=>{
+        const {answers}= this.state
+        if(answers[question].includes(item)){
+            this.setState({answers: {...answers, [question] : answers[question].filter(it=> it !== item)  } })
+        }
+        else{
+            this.setState({answers: {...answers, [question]: [...answers[question], item] }})
+        }
+    }
+
+    onItemSelect= (selector,question)=> {
+           const {answers}= this.state
+           console.log('select')
+           console.log($(selector).val())
+           this.setState({answers: {...answers, [question]: $(selector).val() }  })
+    }
+
+    onSliderUpdate= (newValue,question)=>{
+          const {answers}= this.state
+          this.setState({answers: {...answers, [question]: newValue }})
+    }
+
     render() {
         return (
             <AppTemplate>
