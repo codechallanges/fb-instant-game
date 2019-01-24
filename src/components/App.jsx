@@ -9,31 +9,38 @@ import './app.css'
 class App extends React.Component {
     constructor(props){
         super(props)
+        this.state={
+            loading: false,
+            loadingError: false
+        }
     }
 
     componentDidMount(){
-        console.log('hello')
-       /* FBInstant.initializeAsync()
+       this.setState({loading: true})
+       FBInstant.initializeAsync()
         .then(()=>{
             FBInstant.startGameAsync()
             .then(this.onStart)
-        })*/
+        })
+        .catch(this.onError)
 
     }
 
     onError= (err)=>{
-        console.log('error')
+       this.setState({loadingError: true})
     }
 
 
     onStart= ()=>{
-        //document.getElementsByClassName('message')[0].innerHTML('hhehehehehehehe')
+        this.setState({loading: false})
     }
 
     render(){
         return (
             <div className="app" >
-                App component
+                {
+                    this.state.loading ? <p>Preparing app...</p>: <GameForm onDisplayResult={} />
+                }
             </div>
         )
     }
