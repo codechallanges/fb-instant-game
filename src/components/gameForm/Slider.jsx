@@ -1,6 +1,6 @@
 import React from 'react';
 import 'nouislider';
-import '../../../assets/css/nouislider.min.css';
+import '@assets/css/nouislider.min.css';
 
 
 export default class Slider extends React.Component {

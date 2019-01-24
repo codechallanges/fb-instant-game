@@ -7,9 +7,10 @@ var config = {
     entry: resolveApp('index.js'),
     devtool: '#source-map',
     resolve: {
-        extensions: ['.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.json','.css'],
         alias: {
-            '@': resolveApp('src/components')
+            '@': resolveApp('src/components'),
+            '@assets': resolveApp('assets')
         }
     },
     module: {
