@@ -22,6 +22,16 @@ export default class Score extends React.Component {
         }
     }
 
+    shareFacebook= ()=>{
+        const {score}= this.props
+        FBInstant.shareAsync({
+            intent: 'REQUEST',
+            image: 'image',
+            text: 'Hey that\'s the rating of latest react hustle, what about you?',
+            data: { myReplayData:  score },
+        })
+    }
+
 
     render(){
         return (
@@ -34,7 +44,8 @@ export default class Score extends React.Component {
                                 <p>{this.state.score}</p>
                             </div>
                             <div className="column" >
-                                <a className="button is-link is-outlined">Share to Facebook</a>
+                                <a className="button is-link is-outlined" href="#" 
+                                    onClick={this.shareFacebook} >Share to Facebook</a>
                             </div>
                         </div>
                     </div>
